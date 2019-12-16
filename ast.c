@@ -3,6 +3,7 @@
 //
 
 # include "ast.h"
+# include <string.h>
 
 past new_node(char* token_type, char* value, past l, past r){
     past node = (past) malloc(sizeof(ast));
@@ -19,7 +20,7 @@ past new_node(char* token_type, char* value, past l, past r){
 
 void show_tree(past node, int high){
     if (node == NULL) return;
-    if (node->token_type == token_Compound_list) {
+    if (!strcmp(node->token_type, token_Compound_list)) {
         show_tree(node->left, high);
         show_tree(node->right, high);
         return;

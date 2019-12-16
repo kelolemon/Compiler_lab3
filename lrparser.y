@@ -101,7 +101,7 @@ end_scope: '}' { $$ = new_node(token_end_s, "}", NULL, NULL); }
         ;
 
 statement_list: statement { $$ = $1; }
-               | statement_list statement { $$ = new_node(token_Compound_list, "", $1, $2)}
+               | statement_list statement { $$ = new_node(token_Compound_list, "", $1, $2);}
                ;
 
 expression_statement: ';' { $$ = NULL; }

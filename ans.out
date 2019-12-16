@@ -1,0 +1,152 @@
+Decl: 
+	type: int
+	Value_Decl: a
+	number_lvalue: 33
+	Value_Decl: b
+	Value_Decl: c
+	number_lvalue: 44
+Decl: 
+	type: int
+	Value_Decl: bb
+	number_lvalue: 3
+Decl: 
+	type: str
+	Value_Decl: aaa
+	string_lvalue: "12345"
+	Value_Decl: bbb
+Func_Decl: 
+	type: str
+	Func_Decl: f
+	Begin_Scope: {
+	Decl: 
+		type: str
+		Value_Decl: b
+		Operator: +
+			string_lvalue: "aaa"
+			string_lvalue: "ddd"
+	Decl: 
+		type: str
+		Value_Decl: c
+		Operator: +
+			string_lvalue: "ccc"
+			string_lvalue: "bb"
+	Ret_Stmt: 
+		Var_Ref: c
+	End_Scope: }
+Func_Decl: 
+	type: int
+	Func_Decl: func1
+	parameter: 
+		type: int
+		Value_varible: fir
+	parameter: 
+		type: int
+		Value_varible: sec
+	Begin_Scope: {
+	Decl: 
+		type: int
+		Value_Decl: b
+		Operator: +
+			Operator: *
+				Var_Ref: fir
+				Var_Ref: sec
+			number_lvalue: 3000
+	Decl: 
+		type: int
+		Value_Decl: a
+		number_lvalue: 10
+	While_Stmt: 
+		Operator: >
+			Var_Ref: a
+			number_lvalue: 0
+		Begin_Scope: {
+		Operator: =
+			Var_Ref: a
+			Operator: -
+				Var_Ref: a
+				number_lvalue: 1
+		End_Scope: }
+	Ret_Stmt: 
+		Var_Ref: b
+	End_Scope: }
+Func_Decl: 
+	type: void
+	Func_Decl: multable
+	Begin_Scope: {
+	Decl: 
+		type: int
+		Value_Decl: i
+		number_lvalue: 1
+	While_Stmt: 
+		Operator: <
+			Var_Ref: i
+			number_lvalue: 10
+		Begin_Scope: {
+		Decl: 
+			type: int
+			Value_Decl: j
+			number_lvalue: 1
+		While_Stmt: 
+			Operator: <
+				Var_Ref: j
+				number_lvalue: 10
+			Begin_Scope: {
+			Print_Stmt: 
+				Operator: +
+					string_lvalue: "\t"
+					Operator: *
+						Var_Ref: i
+						Var_Ref: j
+			Operator: =
+				Var_Ref: j
+				Operator: +
+					Var_Ref: j
+					number_lvalue: 1
+			End_Scope: }
+		Print_Stmt: 
+			string_lvalue: "\n"
+		Operator: =
+			Var_Ref: i
+			Operator: +
+				Var_Ref: i
+				number_lvalue: 1
+		End_Scope: }
+	End_Scope: }
+Func_Decl: 
+	type: int
+	Func_Decl: fn
+	parameter: 
+		type: int
+		Value_varible: n
+	Begin_Scope: {
+	If_Stmt: 
+		Operator: ==
+			Var_Ref: n
+			number_lvalue: 1
+		Else_Stmt: 
+			Ret_Stmt: 
+				number_lvalue: 1
+			Begin_Scope: {
+			Decl: 
+				type: int
+				Value_Decl: r
+				Operator: *
+					Var_Ref: n
+					Func_Ref: n
+						Operator: -
+							Var_Ref: n
+							number_lvalue: 1
+			Print_Stmt: 
+				Var_Ref: r
+			Ret_Stmt: 
+				Var_Ref: r
+			End_Scope: }
+	End_Scope: }
+Func_Decl: 
+	type: int
+	Func_Decl: main
+	Begin_Scope: {
+	Var_Ref: multable
+	Ret_Stmt: 
+		number_lvalue: 0
+	End_Scope: }
